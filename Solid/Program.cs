@@ -1,15 +1,29 @@
-﻿using Solid.SRP.Interfaz;
+﻿using Solid.OCP;
+using Solid.SRP.Interfaz;
 using Solid.SRP.Models;
 using Solid.SRP.Services;
 public class Program
 {
-    public static string nombre { get; private set; }
-    public static int edad { get; private set; }
-    public static string direccion { get; private set; }
-    public static string correo { get; private set; }
-
-    private static void Main(string[] args)
+    
+    public static void Main(string[] args)
     {
+        //OCP
+        TaxCalculator calculator = new TaxCalculator();
+
+        decimal income = 100;
+        decimal deduction = 20;
+        string country = "India";
+
+
+        decimal taxAmount = calculator.Calculate(income, deduction, country);
+        
+
+        
+
+         Console.WriteLine($"El monto del impuesto para {country} es: {taxAmount}");
+
+
+        //SRP
         Persona persona = new Persona();
         Console.WriteLine("Ditite el Nombre");
         Console.ReadLine();
