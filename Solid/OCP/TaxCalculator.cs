@@ -19,7 +19,7 @@ namespace Solid.OCP
         {
             if (!_tax.ContainsKey(country))
             {
-                throw new NotImplementedException($"El impuesto para el país '{country}' no está implementada.");
+                Console.WriteLine($"El impuesto para el país '{country}' no está implementada.");
             }
 
             decimal taxableIncome = income - deduction;

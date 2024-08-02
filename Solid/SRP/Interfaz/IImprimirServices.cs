@@ -1,6 +1,5 @@
 ﻿
 using Solid.SRP.Models;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Solid.SRP.Interfaz
 {

@@ -14,7 +14,8 @@ namespace Solid.OCP
             }
             else
             {
-                taxAmount = (taxableIncome - 10) * 3;
+                decimal v = (taxableIncome - 10) * 4;
+                taxAmount = 0;
             }
 
             return taxAmount;
