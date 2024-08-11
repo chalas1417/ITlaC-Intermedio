@@ -1,5 +1,9 @@
-﻿using Solid.ISP.Refactory;
+﻿using Solid.DIP.Models;
+using Solid.DIP.Services;
+using Solid.ISP.Refactory;
 using Solid.ISP.Refactory.Interfaz;
+using Solid.LSP;
+using Solid.LSP.Base;
 using Solid.OCP;
 using Solid.SRP.Interfaz;
 using Solid.SRP.Models;
@@ -14,6 +18,29 @@ namespace Solid
         {
 
 
+
+            //Practica DIP
+            CustomerServices services = new CustomerServices();
+            Customer customer = new Customer();
+
+            Console.WriteLine($"Customer ID: 22{customer.Id}, Name:Leidy {customer.Name}");
+
+
+
+            //LSP
+
+            FiguraGeometrica rectangulo1 = new Solid.LSP.Rectangulo { Base = 4, Altura = 5 };
+            FiguraGeometrica cuadrado1 = new Cuadrado { Base = 4, Altura = 5 }; // Violación del LSP
+
+            Console.WriteLine($"Área del rectángulo: {rectangulo1.CalcularArea()}");
+            Console.WriteLine($"Área del cuadrado: {cuadrado1.CalcularArea()}"); // Esto falla al no ser un cuadrado.
+
+
+
+
+            Rectangulo rectangulo = new Rectangulo();
+            rectangulo.CalcularArea();
+
             //ISP
             Iave2 pato = new Pato2();
             pato.Cantar();
@@ -27,8 +54,7 @@ namespace Solid
 
             Iave2 gaviota = new Gaviota2();
             gaviota.PonerHuevos();
-            ((IaveVoladora)gaviota).Voladora();
-            //((IavePonerHuevo)gaviota).PonerHuevo();
+            
 
 
 
